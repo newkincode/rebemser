@@ -3,6 +3,7 @@ extends Node
 const ZOMBIE = preload("res://sceen/zombie.tscn")
 var v_pos = Vector2(0,0)
 var zb_count = 0
+var max_zb = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +13,7 @@ var count = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	count += delta
-	if count >= 1 and not zb_count == 5:
+	if count >= 1 and not zb_count >= max_zb:
 		v_pos.x += 20
 		clone(v_pos)
 		count = 0
