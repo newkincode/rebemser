@@ -1,17 +1,18 @@
 extends CharacterBody2D
 
-var speed = 150
+var speed = 200
 var player_chase = false
 var player: CharacterBody2D = null
 var attack_player = null
 var attack_count = 0
 var hp = 100
+var gac = 0
 @onready var texture_progress_bar = $TextureProgressBar
 @onready var zombies = $"../Zombies"
 
 func _physics_process(delta):
 	if player_chase:
-		velocity = (player.global_position - global_position).normalized() * speed
+		velocity = (player.position - position).normalized() * speed
 		move_and_slide()
 	if not attack_player == null and attack_count >= 2:
 		attack_player.hp -= 5
